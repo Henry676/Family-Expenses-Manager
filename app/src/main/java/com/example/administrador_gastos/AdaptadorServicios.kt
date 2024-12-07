@@ -7,12 +7,13 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class AdaptadorServicios constructor( var dato: List<String>, var layout: Int, var itemListener: AdaptadorServicios.OnItemClickListener):
+class AdaptadorServicios constructor( var dato: MutableList<String>, var layout: Int, var itemListener: AdaptadorServicios.OnItemClickListener):
     RecyclerView.Adapter<AdaptadorServicios.ViewHolder?>() {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         var txtRegistroServicio: TextView = itemView.findViewById<View>(R.id.textViewName)as TextView
         fun bind(name: String?, itemListener: AdaptadorServicios.OnItemClickListener) {
             txtRegistroServicio.text = name
+            txtRegistroServicio.setTextColor(Color.WHITE)
             itemView.setBackgroundColor(Color.BLACK)
             itemView.setOnClickListener {
                 itemListener.onItemClick(name, absoluteAdapterPosition)

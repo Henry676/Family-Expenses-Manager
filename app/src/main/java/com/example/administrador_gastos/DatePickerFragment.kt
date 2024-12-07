@@ -11,8 +11,6 @@ import java.util.Calendar
 class DatePickerFragment(val listener: (dia: Int, mes: Int, year: Int) -> Unit): DialogFragment(),
     DatePickerDialog.OnDateSetListener {
 
-
-
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
         listener(dayOfMonth,month,year)
     }

@@ -7,11 +7,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class AdaptadorExtras constructor( var dato: List<String>, var layout: Int, var itemListener: AdaptadorExtras.OnItemClickListener): RecyclerView.Adapter<AdaptadorExtras.ViewHolder?>(){
+class AdaptadorExtras constructor( var dato: MutableList<String>, var layout: Int, var itemListener: AdaptadorExtras.OnItemClickListener): RecyclerView.Adapter<AdaptadorExtras.ViewHolder?>(){
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         var txtRegistro: TextView = itemView.findViewById<View>(R.id.textViewName)as TextView
         fun bind(name: String?, itemListener: AdaptadorExtras.OnItemClickListener) {
             txtRegistro.text = name
+            txtRegistro.setTextColor(Color.WHITE)
             itemView.setBackgroundColor(Color.BLACK)
             itemView.setOnClickListener {
                 itemListener.onItemClick(name, absoluteAdapterPosition)

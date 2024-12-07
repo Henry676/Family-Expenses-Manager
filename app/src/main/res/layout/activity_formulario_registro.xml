@@ -74,14 +74,14 @@
         android:layout_height="90dp">
 
         <RadioButton
-            android:id="@+id/radioButton1"
+            android:id="@+id/masc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Masculino"
             android:checked="true"/>
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/fem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Femenino" />
@@ -91,6 +91,15 @@
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/blue"
+        android:textColor="@color/white"
         android:text="Registrarse" />
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/blue"
+        android:text="Modificar datos" />
 
 </LinearLayout>

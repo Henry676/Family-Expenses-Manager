@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FotoTicket">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@mipmap/fondomain" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tómele foto a su ticket"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/purple"
+            android:layout_marginBottom="20dp"
+            android:gravity="center" />
+
+        <Button
+            android:id="@+id/btnTomarFoto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/cyan"
+            android:elevation="6dp"
+            android:textStyle="bold"
+            android:text="Activar cámara" />
+
+        <ImageView
+            android:id="@+id/imgFoto"
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="Imagen tomada"
+            tools:srcCompat="@tools:sample/avatars" />
+
+    </LinearLayout>
+
+</FrameLayout>

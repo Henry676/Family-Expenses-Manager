@@ -7,6 +7,20 @@
     <color name="yellow">#D4B800</color>
     <color name="green">#4AD400</color>
     <color name="red">#D40000</color>
+    <color name="status_bar_color_light">#FFC107</color>
+    <color name="status_bar_color_dark">#011689</color>
+    <color name="purple">#673AB7</color>
+    <color name="sky">#1C86FF</color>
+    <color name="lowSky">#77B6FD</color>
+    <color name="orange">#FF5722</color>
+    <color name="darkpurple">#2F0D6D</color>
+
+
+
+
+
+
+
 
 
 

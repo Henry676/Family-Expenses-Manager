@@ -1,10 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:orientation="vertical"
+    android:background="@mipmap/fondoproximos"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".seccionProximosPagos">
+    android:padding="16dp"
+    tools:context=".SeccionExtras">
+    <TextView
+        android:textStyle="bold"
+        android:id="@+id/seccionExtra"
+        android:layout_width="match_parent"
+        android:layout_height="95dp"
+        android:text="@string/registrarProximos"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:textColor="@color/white"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+        android:id="@+id/txtNombreProximoPago"
+        android:textStyle="bold"
+        android:textColor="@color/cyan"
+        android:padding="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="@string/nombreProximo"
+        android:imeOptions="actionNext"
+        android:textColorHint="@color/white"
+        android:imeActionLabel="sig."/>
+
+
+
+    <EditText
+        android:textColor="@color/cyan"
+        android:padding="25dp"
+        android:textStyle="bold"
+        android:id="@+id/txtFechaProximo"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:ems="10"
+        android:inputType="date"
+        android:hint="@string/fechaProximo"
+        android:imeOptions="actionNext"
+        android:imeActionLabel="sig."
+        android:textColorHint="@color/white"
+        android:focusable="false"
+        android:clickable="false"/>
+    <EditText
+        android:textColor="@color/cyan"
+        android:padding="25dp"
+        android:textStyle="bold"
+        android:id="@+id/txtHoraProximo"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:ems="10"
+        android:hint="@string/horaProximo"
+        android:imeOptions="actionNext"
+        android:imeActionLabel="sig."
+        android:textColorHint="@color/white"
+        android:focusable="false"
+        android:clickable="true"/>
+
+    <EditText
+        android:textColor="@color/cyan"
+        android:textStyle="bold"
+        android:padding="25dp"
+        android:id="@+id/txtTotalProximo"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:hint="@string/total"
+        android:imeOptions="actionDone"
+        android:imeActionLabel="Listo"
+        android:textColorHint="@color/white"/>
+
+    <Button
+        android:id="@+id/establecerPago"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/sky"
+        android:text="@string/establecer"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/showRecyclerProximos"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/sky"
+        android:text="@string/btnMostrarPagos"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/cancelarProximos"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/sky"
+        android:text="@string/cancelar"
+        android:textColor="@color/white" />
+</LinearLayout>

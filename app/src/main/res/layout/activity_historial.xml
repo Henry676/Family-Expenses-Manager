@@ -1,35 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".historial">
-
-    <AutoCompleteTextView
-        android:id="@+id/buscador"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:completionThreshold="1"
-        android:hint="Buscar gastos"
-        android:imeActionLabel="Buscar"
-        android:imeOptions="actionSearch"
-        android:inputType="text"
-        tools:layout_editor_absoluteX="93dp"
-        tools:layout_editor_absoluteY="16dp" />
-
-    <Spinner
-        android:id="@+id/spinner_registro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    android:id="@+id/main">
+    <ImageView
+        android:id="@+id/imageView3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="vertical"/>
+        android:scaleType="fitXY"
+        android:background="@color/lowSky" />
 
-</LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Historial">
+
+        <AutoCompleteTextView
+            android:id="@+id/buscador"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:completionThreshold="1"
+            android:hint="Buscar gastos"
+            android:imeActionLabel="Buscar"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            tools:layout_editor_absoluteX="93dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <Spinner
+            android:id="@+id/spinner_registro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"/>
+
+    </LinearLayout>
+</FrameLayout>

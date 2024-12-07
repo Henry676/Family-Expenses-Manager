@@ -7,19 +7,20 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class AdaptadorTransporte constructor( var dato: List<String>, var layout: Int, var itemListener: AdaptadorTransporte.OnItemClickListener):
+class AdaptadorTransporte constructor( var dato: MutableList<String>, var layout: Int, var itemListener: AdaptadorTransporte.OnItemClickListener):
     RecyclerView.Adapter<AdaptadorTransporte.ViewHolder?>() {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         var txtRegistroTransporte: TextView = itemView.findViewById<View>(R.id.textViewName)as TextView
         fun bind(name: String?, itemListener: AdaptadorTransporte.OnItemClickListener) {
             txtRegistroTransporte.text = name
+            txtRegistroTransporte.setTextColor(Color.WHITE)
             itemView.setBackgroundColor(Color.BLACK)
+
             itemView.setOnClickListener {
                 itemListener.onItemClick(name, absoluteAdapterPosition)
             }
         }
     }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdaptadorTransporte.ViewHolder {
         val view: View = LayoutInflater.from(parent.context).inflate(layout, parent, false)

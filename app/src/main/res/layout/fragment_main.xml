@@ -1,200 +1,198 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mainFragment">
+    tools:context=".MainFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/main"
+    <!-- Fondo principal -->
+    <ImageView
+        android:id="@+id/imageView3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".appPrincipal">
+        android:scaleType="fitXY"
+        android:src="@mipmap/fondomain"/>
 
-        <ImageView
-            android:id="@+id/imageView3"
+
+        <!-- GridLayout con 2 columnas y 3 filas -->
+        <GridLayout
+            android:id="@+id/gridLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_gravity="center"
+            android:columnCount="2"
+            android:rowCount="3"
+            android:layout_margin="16dp"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@mipmap/fondomain"
-            android:scaleType="fitXY"/>
-
-        <FrameLayout
-            android:id="@+id/extras"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintEnd_toEndOf="parent">
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                android:layout_margin="8dp">
+                <!-- Primer elemento -->
+                <FrameLayout
+                    android:id="@+id/extras"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-            <ImageButton
-                android:id="@+id/btnextras"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@mipmap/extra"
-                android:scaleType="fitCenter" />
+                    <ImageButton
+                        android:id="@+id/btnextras"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@mipmap/extra"
+                        android:scaleType="fitCenter" />
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|top"
+                        android:text="Extras"
+                        android:layout_marginBottom="8dp"
+                        android:textSize="14sp"
+                        android:textColor="#000"
+                        android:textStyle="bold"/>
+                </FrameLayout>
+            </androidx.cardview.widget.CardView>
+            <!-- Segundo elemento -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                android:layout_margin="8dp">
+                <FrameLayout
+                    android:id="@+id/transporte"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="50dp"
-                android:text="Extras" />
-        </FrameLayout>
+                <ImageButton
+                    android:id="@+id/btntransporte"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@mipmap/transporte"
+                    android:scaleType="fitCenter"/>
 
-        <FrameLayout
-            android:id="@+id/transporte"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_marginTop="100dp"
-            android:layout_marginEnd="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-
-            <ImageButton
-                android:id="@+id/btntransporte"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@mipmap/transporte"
-                android:scaleType="fitCenter" />
-
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="50dp"
-                android:text="Transporte" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/Comida"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="90dp"
-            android:background="@mipmap/comida"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/extras">
-
-
-            <ImageButton
-                android:id="@+id/btncomida"
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|top"
+                    android:text="Transporte"
+                    android:layout_marginBottom="8dp"
+                    android:textSize="14sp"
+                    android:textColor="#000"
+                    android:textStyle="bold"/>
+            </FrameLayout>
+            </androidx.cardview.widget.CardView>
+            <!-- Tercer elemento -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                android:layout_margin="8dp">
+            <FrameLayout
+                android:id="@+id/comida"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:background="@mipmap/comida"
-                android:scaleType="fitCenter" />
+                android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="50dp"
-                android:text="Comida" />
-        </FrameLayout>
+                <ImageButton
+                    android:id="@+id/btncomida"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@mipmap/comida"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@string/comida" />
 
-        <FrameLayout
-            android:id="@+id/servicios"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_marginTop="90dp"
-            android:layout_marginEnd="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/extras">
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|top"
+                    android:text="Comida"
+                    android:layout_marginBottom="8dp"
+                    android:textSize="14sp"
+                    android:textColor="#000"
+                    android:textStyle="bold"/>
+            </FrameLayout>
+            </androidx.cardview.widget.CardView>
+            <!-- Cuarto elemento -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                android:layout_margin="8dp">
+            <FrameLayout
+                android:id="@+id/servicios"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
+                <ImageButton
+                    android:id="@+id/btnservicios"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@mipmap/servicios"
+                    android:scaleType="fitCenter" />
 
-            <ImageButton
-                android:id="@+id/btnservicios"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@mipmap/servicios"
-                android:scaleType="fitCenter"/>
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|top"
+                    android:text="Servicios"
+                    android:layout_marginBottom="8dp"
+                    android:textSize="14sp"
+                    android:textColor="#000"
+                    android:textStyle="bold"/>
+            </FrameLayout>
+            </androidx.cardview.widget.CardView>
+            <!-- Quinto elemento -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                android:layout_margin="8dp">
+            <FrameLayout
+                android:id="@+id/historial"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="50dp"
-                android:text="Servicios" />
-        </FrameLayout>
+                <ImageButton
+                    android:id="@+id/btnhistorial"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@mipmap/historial"
+                    android:scaleType="fitCenter" />
+            </FrameLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                android:layout_margin="8dp">
+            <!-- Sexto elemento -->
+            <FrameLayout
+                android:id="@+id/pagos"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <FrameLayout
-            android:id="@+id/historial"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="90dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/servicios">
+                <ImageButton
+                    android:id="@+id/btnpagosprox"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@mipmap/proximo"
+                    android:scaleType="fitCenter"/>
 
-
-            <ImageButton
-                android:id="@+id/btnhistorial"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@mipmap/historial"
-                android:scaleType="fitCenter"/>
-
-        </FrameLayout>
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="70dp"
-            android:text="Historial"
-            app:layout_constraintBottom_toTopOf="@+id/historial"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Comida" />
-
-        <FrameLayout
-            android:id="@+id/pagos"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_marginTop="90dp"
-            android:layout_marginEnd="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Comida">
-
-
-            <ImageButton
-                android:id="@+id/btnpagosprox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@mipmap/proximo"
-                android:scaleType="fitCenter"/>
-
-        </FrameLayout>
-
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
-            android:layout_marginEnd="40dp"
-            android:text="Próximos pagos"
-            app:layout_constraintBottom_toTopOf="@+id/pagos"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/servicios" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+            </FrameLayout>
+            </androidx.cardview.widget.CardView>
+        </GridLayout>
 </FrameLayout>

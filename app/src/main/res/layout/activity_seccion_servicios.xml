@@ -1,84 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:orientation="vertical"
-    android:background="@mipmap/fondoservicios"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".seccionServicios">
-    <TextView
-        android:id="@+id/seccionServicio"
-        android:textStyle="bold"
-        android:layout_width="match_parent"
-        android:layout_height="95dp"
-        android:text="@string/registrarServicios"
-        android:gravity="center"
-        android:textSize="40sp"
-        android:textColor="@color/cyan"/>
+    tools:context=".SeccionServicios">
 
-    <EditText
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:padding="25dp"
-        android:id="@+id/txtTipoServicio"
+    <!-- Imagen de fondo -->
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="@string/servicio"
-        android:imeOptions="actionNext"
-        android:textColorHint="@color/cyan"
-        android:imeActionLabel="sig."/>
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/fondoservicios"/>
 
-    <EditText
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:padding="25dp"
-        android:id="@+id/txtFechaServicio"
+    <!-- Superposición oscura -->
+    <View
         android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:ems="10"
-        android:clickable="false"
-        android:focusable="false"
-        android:inputType="date"
-        android:hint="@string/fechaServicio"
-        android:imeOptions="actionNext"
-        android:imeActionLabel="sig."
-        android:textColorHint="@color/cyan" />
+        android:layout_height="match_parent"
+        android:background="#99000000" /> <!-- Color negro con transparencia -->
 
-    <EditText
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:padding="25dp"
-        android:id="@+id/txtTotalServicio"
+    <!-- Contenido principal -->
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:hint="@string/totalServicio"
-        android:imeOptions="actionDone"
-        android:imeActionLabel="Listo"
-        android:textColorHint="@color/cyan"/>
+        android:layout_height="match_parent"
+        android:padding="16dp">
 
-    <Button
-        android:id="@+id/addRecyclerServicio"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:layout_margin="20dp"
-        android:backgroundTint="@color/black"
-        android:text="@string/botonAggTransp"
-        android:textColor="@color/white" />
+        <TextView
+            android:id="@+id/seccionServicio"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            android:text="@string/registrarServicios"
+            android:gravity="center"
+            android:textSize="40sp"
+            android:textColor="@color/yellow" />
 
-    <Button
-        android:id="@+id/showRecyclerServicio"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:layout_margin="20dp"
-        android:backgroundTint="@color/black"
-        android:text="@string/btnmostrarGastosTransp"
-        android:textColor="@color/white" />
+        <EditText
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:padding="25dp"
+            android:id="@+id/txtTipoServicio"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="@string/nombreServicio"
+            android:imeOptions="actionNext"
+            android:textColorHint="@color/yellow"
+            android:imeActionLabel="sig." />
 
-</LinearLayout>
+        <EditText
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:padding="25dp"
+            android:id="@+id/txtFechaServicio"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:ems="10"
+            android:clickable="false"
+            android:focusable="false"
+            android:inputType="date"
+            android:hint="@string/fecha"
+            android:imeOptions="actionNext"
+            android:imeActionLabel="sig."
+            android:textColorHint="@color/yellow" />
+
+        <EditText
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:padding="25dp"
+            android:id="@+id/txtTotalServicio"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:hint="@string/total"
+            android:imeOptions="actionDone"
+            android:imeActionLabel="Listo"
+            android:textColorHint="@color/yellow" />
+
+        <Button
+            android:id="@+id/addRecyclerServicio"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_margin="20dp"
+            android:backgroundTint="@color/yellow"
+            android:text="@string/botonAgregarCosto"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/showRecyclerServicio"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_margin="20dp"
+            android:backgroundTint="@color/yellow"
+            android:text="@string/btnMostrarGastos"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/updateRecyclerServicio"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_margin="20dp"
+            android:backgroundTint="@color/yellow"
+            android:text="@string/btnModificarGasto"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+</FrameLayout>

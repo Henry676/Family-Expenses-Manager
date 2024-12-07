@@ -7,11 +7,11 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Login">
 
     <fragment
         android:id="@+id/dataFragment"
-        android:name="com.example.administrador_gastos.Login"
+        android:name="com.example.administrador_gastos.Log"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"

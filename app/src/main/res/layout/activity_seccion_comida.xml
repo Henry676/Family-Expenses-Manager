@@ -1,98 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/fondocomida"
-    tools:context=".seccionComida">
-
-    <TextView
-        android:id="@+id/seccionComida"
+    tools:context=".SeccionComida">
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="95dp"
-        android:text="@string/registrar"
-        android:gravity="center"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:textColor="@color/yellow"/>
-
-    <EditText
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:padding="25dp"
-        android:id="@+id/txtComida"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/fondocomida"/>
+    <!-- Superposición oscura -->
+    <View
         android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="@string/comida"
-        android:imeOptions="actionNext"
-        android:textColorHint="@color/yellow"
-        android:imeActionLabel="sig."/>
+        android:layout_height="match_parent"
+        android:background="#99000000" /> <!-- Color negro con transparencia -->
 
-    <EditText
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:padding="25dp"
-        android:id="@+id/txtCantidad"
+
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:ems="10"
-        android:inputType="number"
-        android:hint="@string/cantidad"
-        android:imeOptions="actionNext"
-        android:textColorHint="@color/yellow"
-        android:imeActionLabel="sig."/>
+        android:layout_height="match_parent"
+        android:padding="16dp">
 
-    <EditText
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:padding="25dp"
-        android:id="@+id/txtFecha"
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:ems="10"
-        android:inputType="date"
-        android:hint="@string/fecha"
-        android:imeOptions="actionNext"
-        android:imeActionLabel="sig."
-        android:textColorHint="@color/yellow"
-        android:clickable="false"
-        android:focusable="false"/>
+        <TextView
+            android:id="@+id/seccionComida"
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            android:text="@string/registrar"
+            android:gravity="center"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:textColor="@color/orange"/>
 
-    <EditText
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:padding="25dp"
-        android:id="@+id/txtTotal"
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:hint="@string/totalComida"
-        android:imeOptions="actionDone"
-        android:imeActionLabel="Listo"
-        android:textColorHint="@color/yellow"/>
+        <EditText
+            android:id="@+id/txtComida"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:padding="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="@string/comida"
+            android:imeOptions="actionNext"
+            android:textColorHint="@color/orange"
+            android:imeActionLabel="sig."/>
 
-    <Button
-        android:layout_margin="20dp"
-        android:id="@+id/addRecyclerComida"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:text="@string/botonAggComida"
-        android:backgroundTint="@color/black"
-        android:textColor="@color/white"/>
+        <EditText
+            android:id="@+id/txtCantidadComida"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:padding="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="@string/cantidad"
+            android:imeOptions="actionNext"
+            android:textColorHint="@color/orange"
+            android:imeActionLabel="sig."/>
 
-    <Button
-        android:layout_margin="20dp"
-        android:id="@+id/showRecyclerComida"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:text="@string/btnmostrarGastos"
-        android:backgroundTint="@color/black"
-        android:textColor="@color/white"/>
+        <EditText
+            android:id="@+id/txtFechaComida"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:padding="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:ems="10"
+            android:inputType="date"
+            android:hint="@string/fecha"
+            android:imeOptions="actionNext"
+            android:imeActionLabel="sig."
+            android:textColorHint="@color/orange"
+            android:clickable="false"
+            android:focusable="false"/>
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/txtTotalComida"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:padding="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:hint="@string/total"
+            android:imeOptions="actionDone"
+            android:imeActionLabel="Listo"
+            android:textColorHint="@color/orange"/>
+
+        <Button
+            android:id="@+id/addRecyclerComida"
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:text="@string/botonAgregarCosto"
+            android:backgroundTint="@color/black"
+            android:textColor="@color/orange"/>
+
+        <Button
+            android:layout_margin="20dp"
+            android:id="@+id/showRecyclerComida"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:text="@string/btnMostrarGastos"
+            android:backgroundTint="@color/black"
+            android:textColor="@color/orange"/>
+
+        <Button
+            android:layout_margin="20dp"
+            android:id="@+id/updateRecyclerComida"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:text="@string/btnModificarGasto"
+            android:backgroundTint="@color/black"
+            android:textColor="@color/orange"/>
+
+    </LinearLayout>
+
+</FrameLayout>

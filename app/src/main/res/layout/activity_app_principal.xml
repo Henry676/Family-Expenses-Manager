@@ -5,10 +5,10 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".appPrincipal">
+    tools:context=".AppPrincipal">
     <fragment
         android:id="@+id/dataFragment"
-        android:name="com.example.administrador_gastos.mainFragment"
+        android:name="com.example.administrador_gastos.MainFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"

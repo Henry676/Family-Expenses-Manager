@@ -1,98 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@mipmap/fondotransporte"
-    tools:context=".seccionTransporte">
-    <TextView
-        android:textStyle="bold"
-        android:id="@+id/seccionComida"
+    tools:context=".SeccionExtras">
+    <!-- Imagen de fondo -->
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="95dp"
-        android:text="@string/registrarTransp"
-        android:gravity="center"
-        android:textSize="40sp"
-        android:textColor="@color/red"/>
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/fondotransporte"/>
 
-    <EditText
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:padding="25dp"
-        android:id="@+id/txtTipo"
+    <!-- Superposición oscura -->
+    <View
         android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="@string/transporte"
-        android:imeOptions="actionNext"
-        android:textColorHint="@color/red"
-        android:imeActionLabel="sig."/>
+        android:layout_height="match_parent"
+        android:background="#73000000" />
 
-    <EditText
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:padding="25dp"
-        android:id="@+id/cantidadTransp"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:ems="10"
-        android:inputType="number"
-        android:hint="@string/cantidad"
-        android:imeOptions="actionNext"
-        android:textColorHint="@color/red"
-        android:imeActionLabel="sig."/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+        <TextView
+            android:textStyle="bold"
+            android:id="@+id/seccionComida"
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            android:text="@string/registrarTransp"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:textColor="@color/green"/>
 
-    <EditText
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:padding="25dp"
-        android:id="@+id/txtFechaTransporte"
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:ems="10"
-        android:inputType="date"
-        android:hint="@string/fechaTransp"
-        android:imeOptions="actionNext"
-        android:imeActionLabel="sig."
-        android:textColorHint="@color/red"
-        android:clickable="false"
-        android:focusable="false"/>
+        <EditText
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:padding="25dp"
+            android:id="@+id/txtTipo"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="@string/nombreGasto"
+            android:imeOptions="actionNext"
+            android:textColorHint="@color/green"
+            android:imeActionLabel="sig."/>
 
-    <EditText
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:padding="25dp"
-        android:id="@+id/txtTotalTransporte"
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:hint="@string/totalTransp"
-        android:imeOptions="actionDone"
-        android:imeActionLabel="Listo"
-        android:textColorHint="@color/red"/>
+        <EditText
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:padding="25dp"
+            android:id="@+id/cantidadTransp"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="@string/cantidad"
+            android:imeOptions="actionNext"
+            android:textColorHint="@color/green"
+            android:imeActionLabel="sig."/>
 
-    <Button
-        android:layout_margin="20dp"
-        android:id="@+id/addRecyclerTransporte"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:text="@string/botonAggTransp"
-        android:backgroundTint="@color/black"
-        android:textColor="@color/white"/>
+        <EditText
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:padding="25dp"
+            android:id="@+id/txtFechaTransporte"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:ems="10"
+            android:inputType="date"
+            android:hint="@string/fecha"
+            android:imeOptions="actionNext"
+            android:imeActionLabel="sig."
+            android:textColorHint="@color/green"
+            android:clickable="false"
+            android:focusable="false"/>
 
-    <Button
-        android:layout_margin="20dp"
-        android:id="@+id/showRecyclerTransp"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:text="@string/btnmostrarGastosTransp"
-        android:backgroundTint="@color/black"
-        android:textColor="@color/white"/>
+        <EditText
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:padding="25dp"
+            android:id="@+id/txtTotalTransporte"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:hint="@string/total"
+            android:imeOptions="actionDone"
+            android:imeActionLabel="Listo"
+            android:textColorHint="@color/green"/>
 
-</LinearLayout>
+        <Button
+            android:layout_margin="20dp"
+            android:id="@+id/addRecyclerTransporte"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:text="@string/botonAgregarCosto"
+            android:backgroundTint="@color/green"
+            android:textColor="@color/white"/>
+
+        <Button
+            android:layout_margin="20dp"
+            android:id="@+id/showRecyclerTransp"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:text="@string/btnMostrarGastos"
+            android:backgroundTint="@color/green"
+            android:textColor="@color/white"/>
+        <Button
+            android:layout_margin="20dp"
+            android:id="@+id/updateRecyclerTransporte"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:text="@string/btnModificarGasto"
+            android:backgroundTint="@color/green"
+            android:textColor="@color/white"/>
+
+    </LinearLayout>
+</FrameLayout>

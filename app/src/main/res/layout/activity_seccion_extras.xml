@@ -1,97 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:orientation="vertical"
-    android:background="@mipmap/fondoextras"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".seccionExtras">
-    <TextView
-        android:textStyle="bold"
-        android:id="@+id/seccionExtra"
+    tools:context=".SeccionExtras">
+
+    <!-- Imagen de fondo -->
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="95dp"
-        android:text="@string/registrarExtra"
-        android:gravity="center"
-        android:textSize="40sp"
-        android:textColor="@color/black"/>
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/fondoextras"/>
 
-    <EditText
-        android:textStyle="bold"
-        android:textColor="@color/red"
-        android:padding="25dp"
-        android:id="@+id/txtTipoExtra"
+    <!-- Superposición oscura -->
+    <View
         android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="@string/extra"
-        android:imeOptions="actionNext"
-        android:textColorHint="@color/black"
-        android:imeActionLabel="sig."/>
+        android:layout_height="match_parent"
+        android:background="#73000000" /> <!-- Color negro con transparencia -->
 
-    <EditText
-        android:textColor="@color/red"
-        android:textStyle="bold"
-        android:padding="25dp"
-        android:id="@+id/txtCantidadExtra"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:ems="10"
-        android:inputType="number"
-        android:hint="@string/cantidadExtra"
-        android:imeOptions="actionNext"
-        android:textColorHint="@color/black"
-        android:imeActionLabel="sig."/>
+        android:layout_height="match_parent"
+        android:padding="16dp">
+        <TextView
+            android:textStyle="bold"
+            android:id="@+id/seccionExtra"
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            android:text="@string/registrarExtra"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:textColor="@color/white"/>
 
-    <EditText
-        android:textColor="@color/red"
-        android:padding="25dp"
-        android:textStyle="bold"
-        android:id="@+id/txtFechaExtra"
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:ems="10"
-        android:inputType="date"
-        android:hint="@string/fechaExtra"
-        android:imeOptions="actionNext"
-        android:imeActionLabel="sig."
-        android:textColorHint="@color/black"
-        android:focusable="false"
-        android:clickable="false"/>
+        <EditText
+            android:textStyle="bold"
+            android:textColor="@color/red"
+            android:padding="25dp"
+            android:id="@+id/txtTipoExtra"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="@string/nombreGasto"
+            android:imeOptions="actionNext"
+            android:textColorHint="@color/white"
+            android:imeActionLabel="sig."/>
 
-    <EditText
-        android:textColor="@color/red"
-        android:textStyle="bold"
-        android:padding="25dp"
-        android:id="@+id/txtTotalExtra"
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:hint="@string/totalExtras"
-        android:imeOptions="actionDone"
-        android:imeActionLabel="Listo"
-        android:textColorHint="@color/black"/>
+        <EditText
+            android:textColor="@color/red"
+            android:textStyle="bold"
+            android:padding="25dp"
+            android:id="@+id/txtCantidadExtra"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="@string/cantidad"
+            android:imeOptions="actionNext"
+            android:textColorHint="@color/white"
+            android:imeActionLabel="sig."/>
 
-    <Button
-    android:id="@+id/addRecyclerExtra"
-    android:layout_width="match_parent"
-    android:layout_height="65dp"
-    android:layout_margin="20dp"
-    android:backgroundTint="@color/black"
-    android:text="@string/botonAggExtr"
-    android:textColor="@color/white" />
+        <EditText
+            android:textColor="@color/red"
+            android:padding="25dp"
+            android:textStyle="bold"
+            android:id="@+id/txtFechaExtra"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:ems="10"
+            android:inputType="date"
+            android:hint="@string/fecha"
+            android:imeOptions="actionNext"
+            android:imeActionLabel="sig."
+            android:textColorHint="@color/white"
+            android:focusable="false"
+            android:clickable="false"/>
 
-    <Button
-    android:id="@+id/showRecyclerExtra"
-    android:layout_width="match_parent"
-    android:layout_height="65dp"
-    android:layout_margin="20dp"
-    android:backgroundTint="@color/black"
-    android:text="@string/btnmostrarGastosTransp"
-    android:textColor="@color/white" />
-</LinearLayout>
+        <EditText
+            android:textColor="@color/red"
+            android:textStyle="bold"
+            android:padding="25dp"
+            android:id="@+id/txtTotalExtra"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:hint="@string/total"
+            android:imeOptions="actionDone"
+            android:imeActionLabel="Listo"
+            android:textColorHint="@color/white"/>
+
+        <Button
+            android:id="@+id/addRecyclerExtra"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_margin="20dp"
+            android:backgroundTint="@color/purple"
+            android:text="@string/botonAgregarCosto"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/showRecyclerExtra"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_margin="20dp"
+            android:backgroundTint="@color/purple"
+            android:text="@string/btnMostrarGastos"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/updateRecyclerExtra"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_margin="20dp"
+            android:backgroundTint="@color/purple"
+            android:text="@string/btnModificarGasto"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+</FrameLayout>

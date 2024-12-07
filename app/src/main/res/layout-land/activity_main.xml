@@ -24,7 +24,7 @@
         android:id="@+id/user"
         android:layout_width="107dp"
         android:layout_height="112dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -32,98 +32,89 @@
 
     <EditText
         android:id="@+id/campoUsuario"
-        android:drawablePadding="8dp"
         style="@style/EditTextStyleBlack"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
         android:layout_width="325dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="25dp"
         android:layout_marginBottom="125dp"
         android:drawableLeft="@android:drawable/ic_dialog_email"
+        android:drawablePadding="8dp"
         android:ems="10"
         android:hint="@string/user"
         android:inputType="text"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user" />
+        app:layout_constraintTop_toBottomOf="@+id/user"
+        app:layout_constraintVertical_bias="0.0" />
+
 
     <EditText
         android:id="@+id/campoContraseña"
         style="@style/EditTextStyleBlack"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
         android:layout_width="325dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="125dp"
+        android:layout_marginTop="4dp"
         android:drawableLeft="@android:drawable/ic_lock_lock"
         android:ems="10"
         android:hint="@string/passwd"
         android:inputType="textPassword"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
         android:text=""
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/campoUsuario"
-        app:layout_constraintTop_toBottomOf="@+id/user" />
-
-    <CheckBox
-        android:id="@+id/recordarPasswd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="188dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="80dp"
-        android:text="@string/check"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-        app:layout_constraintEnd_toStartOf="@+id/restablecerContr"
-        app:layout_constraintHorizontal_bias="0.516"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/campoUsuario" />
 
     <TextView
         android:id="@+id/restablecerContr"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="196dp"
+        android:layout_marginStart="212dp"
+        android:layout_marginBottom="20dp"
         android:gravity="center"
         android:text="@string/remind"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/iniciarSesion"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iniciarSesion"
+        app:layout_constraintVertical_bias="0.612" />
+
+    <CheckBox
+        android:id="@+id/recordarPasswd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="  Recordar contraseña"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/campoContraseña" />
+
 
     <Button
         android:id="@+id/iniciarSesion"
-        android:layout_width="350dp"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="60dp"
         android:text="Iniciar sesion"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recordarPasswd" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/crearCuenta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="212dp"
+        android:layout_marginBottom="15dp"
         android:text="@string/create_account"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iniciarSesion" />
+        app:layout_constraintTop_toBottomOf="@+id/iniciarSesion"
+        app:layout_constraintVertical_bias="0.408" />
 
     <ToggleButton
         android:id="@+id/toggleButton"
