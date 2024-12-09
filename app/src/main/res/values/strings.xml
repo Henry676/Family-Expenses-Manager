@@ -32,8 +32,6 @@
     <string name="cancelar">Cancelar pago</string>
 
 
-    <string name="google_maps_key">AIzaSyBm-9pES5Jvj6H1L4opfSJfplG3tI0SVPk</string>
-
 
     <string-array name="historial">
         <item>Luz</item>
