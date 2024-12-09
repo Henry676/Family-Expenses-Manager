@@ -55,10 +55,8 @@ class RecyclerExtras : AppCompatActivity() {
                             arrayOf(nombre,emailUsuarioLogueado), // Pasar el valor como parámetro
                         )
                         var localId = ""
-                        var emailLocal = ""
                         if (row.moveToFirst()) {
                             localId = row.getString(0)
-                            emailLocal = row.getString(1)
                         }
                         eliminarGasto(bd,localId,nombre,db)
                     }
@@ -111,26 +109,6 @@ class RecyclerExtras : AppCompatActivity() {
                 true
             }
             else -> super.onOptionsItemSelected(item)
-        }
-    }
-    override fun onDestroy() {
-        super.onDestroy()
-        val auth = FirebaseAuth.getInstance()
-        val user = auth.currentUser
-
-        if (user != null) {
-            val userId = user.uid
-            val database = FirebaseDatabase.getInstance()
-            val userRef = database.getReference("usuarios").child(userId).child("logged")
-
-            // Actualizar el estado en la base de datos
-            userRef.setValue(false)
-                .addOnSuccessListener {
-                    println("El estado de 'logged' se ha actualizado a false al cerrar la aplicación.")
-                }
-                .addOnFailureListener {
-                    println("Error al actualizar el estado al cerrar la aplicación.")
-                }
         }
     }
 }

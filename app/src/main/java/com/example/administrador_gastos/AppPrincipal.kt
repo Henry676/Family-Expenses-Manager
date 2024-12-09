@@ -95,6 +95,9 @@ class AppPrincipal : AppCompatActivity() {
             }
 
             R.id.cerrarSesion -> {
+
+                Toast.makeText(this, "ACTIVANDOSE FALSE SIN AVISAR", Toast.LENGTH_LONG).show()
+
                 val auth = FirebaseAuth.getInstance()
                 val user = auth.currentUser
 
@@ -104,12 +107,13 @@ class AppPrincipal : AppCompatActivity() {
                     val userRef = database.getReference("usuarios").child(userId).child("logged")
 
                     // Actualizar el estado en la base de datos
+                    Toast.makeText(this, "CAMBIANDO A FALSE", Toast.LENGTH_LONG).show()
+
                     userRef.setValue(false)
                         .addOnSuccessListener {
                             println("El estado de 'logged' se ha actualizado a false.")
                             // Cerrar sesión en Firebase Authentication
                             auth.signOut()
-                            Toast.makeText(this, "Cerrando sesión", Toast.LENGTH_LONG).show()
                             finish() // Finaliza la actividad
                         }
                         .addOnFailureListener {
@@ -123,26 +127,6 @@ class AppPrincipal : AppCompatActivity() {
 
 
             else -> return super.onOptionsItemSelected(item)
-        }
-    }
-    override fun onDestroy() {
-        super.onDestroy()
-        val auth = FirebaseAuth.getInstance()
-        val user = auth.currentUser
-
-        if (user != null) {
-            val userId = user.uid
-            val database = FirebaseDatabase.getInstance()
-            val userRef = database.getReference("usuarios").child(userId).child("logged")
-
-            // Actualizar el estado en la base de datos
-            userRef.setValue(false)
-                .addOnSuccessListener {
-                    println("El estado de 'logged' se ha actualizado a false al cerrar la aplicación.")
-                }
-                .addOnFailureListener {
-                    println("Error al actualizar el estado al cerrar la aplicación.")
-                }
         }
     }
 

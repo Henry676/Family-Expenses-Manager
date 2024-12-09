@@ -1,5 +1,6 @@
 package com.example.administrador_gastos
 
+import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -17,6 +18,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
 class Historial : AppCompatActivity() {
@@ -27,12 +29,24 @@ class Historial : AppCompatActivity() {
     private lateinit var buscadorGastos: AutoCompleteTextView
     private lateinit var gastosPorCategorias: Spinner
 
-    private val db = FirebaseDatabase.getInstance().getReference("gastos")
+    private lateinit var dataBase : DatabaseReference
+
+    private lateinit var dbAdmin : DBController
+
+
     private val currentList = mutableListOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_historial)
+
+        dataBase = FirebaseDatabase.getInstance().getReference("gastos")
+
+        dbAdmin = DBController(this, "gastosCasa.db", null, 1)
+        /*val db = dbAdmin.readableDatabase
+        db.delete("gastosFamiliares", null, null) // Sin WHERE para borrar all
+        db.close()*/
+
 
         window.statusBarColor = ContextCompat.getColor(this, R.color.cyan)// Color de status bar
         supportActionBar?.setBackgroundDrawable(// Color de appBar
@@ -98,14 +112,14 @@ class Historial : AppCompatActivity() {
             Toast.makeText(this, "Usuario no autenticado", Toast.LENGTH_SHORT).show()
             return
         }
-        db.get().addOnCompleteListener { task ->
+        dataBase.get().addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 val gastos = mutableListOf<String>()
                 val result = task.result
                 if (result != null && result.hasChildren()) {
                     for (snapshot in result.children) {
                         val gasto = snapshot.getValue(Gasto::class.java)
-                        if (gasto != null && gasto.nomGasto.contains(busqueda, ignoreCase = true)) {
+                        if (gasto != null && gasto.nomGasto.contains(busqueda, ignoreCase = true) && gasto.email == emailUsuarioLogueado) {
                             gastos.add(gasto.nomGasto)
                         }
                     }
@@ -126,14 +140,19 @@ class Historial : AppCompatActivity() {
 
     // Función para consultar los gastos de una categoría
     private fun consultarGastos(category: String) {
-        db.get().addOnCompleteListener { task ->
+        val emailUsuarioLogueado = FirebaseAuth.getInstance().currentUser?.email
+        if (emailUsuarioLogueado == null) {
+            Toast.makeText(this, "Usuario no autenticado", Toast.LENGTH_SHORT).show()
+            return
+        }
+        dataBase.get().addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 val gastos = mutableListOf<String>()
                 val result = task.result
                 if (result != null && result.hasChildren()) {
                     for (snapshot in result.children) {
                         val gasto = snapshot.getValue(Gasto::class.java)
-                        if (gasto != null && gasto.categoria == category) {
+                        if (gasto != null && gasto.categoria == category && gasto.email == emailUsuarioLogueado) {
                             val detalleGasto = "${gasto.nomGasto}: ${gasto.cantidad} - ${gasto.dia} - ${gasto.total}"
                             gastos.add(detalleGasto)
                         }
@@ -151,35 +170,51 @@ class Historial : AppCompatActivity() {
 
     // Función para confirmar la eliminación de un gasto
     private fun confirmDelete(item: String) {
+        val emailUsuarioLogueado = FirebaseAuth.getInstance().currentUser?.email
+        if (emailUsuarioLogueado == null) {
+            Toast.makeText(this, "Usuario no autenticado", Toast.LENGTH_SHORT).show()
+            return
+        }
         val alertDialog = AlertDialog.Builder(this)
         alertDialog.setMessage("¿Está seguro de querer eliminar este registro?")
             .setTitle("Confirmar eliminación")
             .setPositiveButton("Sí") { _, _ ->
-                eliminarGasto(item)
+                val db = dbAdmin.readableDatabase
+                val nombre = item.split(":")[0]
+
+                val row = db.rawQuery(
+                    "SELECT id FROM gastosFamiliares WHERE name = ? AND email = ?",
+                    arrayOf(nombre,emailUsuarioLogueado), // Pasar el valor como parámetro
+                )
+                var localId = ""
+                if (row.moveToFirst()) {
+                    localId = row.getString(0)
+                }
+                eliminarGasto(localId,nombre,dataBase,db)
             }
             .setNegativeButton("No", null)
             .show()
     }
 
     // Función para eliminar un gasto de Firebase
-    private fun eliminarGasto(item: String) {
-        val gastoId = item.split(":")[0]
-        db.child(gastoId).removeValue()
-            .addOnSuccessListener {
-                Toast.makeText(this, "Gasto eliminado correctamente", Toast.LENGTH_SHORT).show()
-                actualizarListaYAdaptador(gastoId)
+    private fun eliminarGasto(gastoId: String, nombre : String, bd: DatabaseReference, db: SQLiteDatabase) {
+        bd.child(gastoId).removeValue().addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                db.execSQL("DELETE FROM gastosFamiliares WHERE id = ?", arrayOf(gastoId))
+                Toast.makeText(this, "Gasto eliminado de Firebase", Toast.LENGTH_SHORT).show()
+                actualizarListaYAdaptador(nombre)
+            } else {
+                Toast.makeText(this, "Error al eliminar el gasto", Toast.LENGTH_SHORT).show()
             }
-            .addOnFailureListener { exception ->
-                Toast.makeText(this, "Error al eliminar: ${exception.message}", Toast.LENGTH_SHORT).show()
-            }
+        }
     }
 
     // Función para actualizar la lista y el adaptador después de eliminar un gasto
-    private fun actualizarListaYAdaptador(gastoId: String) {
+    private fun actualizarListaYAdaptador(nombre: String) {
         val listaGastos = (miRecyclerView.adapter as AdaptadorHistorial).items
-        val gastoEliminado = listaGastos.find { it.split(":")[0] == gastoId }
-        if (gastoEliminado != null) {
-            listaGastos.remove(gastoEliminado)
+        //val gastoEliminado = listaGastos.find { it.split(":")[0] == nombre }
+        if (nombre != null) {
+            listaGastos.remove(nombre)
             if (listaGastos.size == 0) finish()
             miAdapter.notifyDataSetChanged()
         }
@@ -198,26 +233,6 @@ class Historial : AppCompatActivity() {
                 true
             }
             else -> super.onOptionsItemSelected(item)
-        }
-    }
-    override fun onDestroy() {
-        super.onDestroy()
-        val auth = FirebaseAuth.getInstance()
-        val user = auth.currentUser
-
-        if (user != null) {
-            val userId = user.uid
-            val database = FirebaseDatabase.getInstance()
-            val userRef = database.getReference("usuarios").child(userId).child("logged")
-
-            // Actualizar el estado en la base de datos
-            userRef.setValue(false)
-                .addOnSuccessListener {
-                    println("El estado de 'logged' se ha actualizado a false al cerrar la aplicación.")
-                }
-                .addOnFailureListener {
-                    println("Error al actualizar el estado al cerrar la aplicación.")
-                }
         }
     }
 }

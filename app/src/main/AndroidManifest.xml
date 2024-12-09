@@ -13,9 +13,8 @@
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
-
-
     <application
+        android:name=".MiApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -89,6 +88,7 @@
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
         <activity
             android:name=".Login"
             android:exported="true"
@@ -109,5 +109,6 @@
             android:enabled="true" />
         <receiver android:name=".AlarmaReceiver" android:exported="true"/>
     </application>
+
 
 </manifest>

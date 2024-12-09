@@ -288,24 +288,4 @@ class Login : AppCompatActivity() {
             recordarContra.buttonDrawable = ContextCompat.getDrawable(this, R.drawable.check_selector_light)  // Contorno claro
         }
     }
-    override fun onDestroy() {
-        super.onDestroy()
-        val auth = FirebaseAuth.getInstance()
-        val user = auth.currentUser
-
-        if (user != null) {
-            val userId = user.uid
-            val database = FirebaseDatabase.getInstance()
-            val userRef = database.getReference("usuarios").child(userId).child("logged")
-
-            // Actualizar el estado en la base de datos
-            userRef.setValue(false)
-                .addOnSuccessListener {
-                    println("El estado de 'logged' se ha actualizado a false al cerrar la aplicación.")
-                }
-                .addOnFailureListener {
-                    println("Error al actualizar el estado al cerrar la aplicación.")
-                }
-        }
-    }
 }
