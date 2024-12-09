@@ -40,7 +40,6 @@ class Historial : AppCompatActivity() {
         )
         getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.cyan))// Color de navigation bar
 
-        // Inicializar componentes
         buscadorGastos = findViewById(R.id.buscador)
         gastosPorCategorias = findViewById(R.id.spinner_registro)
 
@@ -94,6 +93,11 @@ class Historial : AppCompatActivity() {
 
     // Función para obtener los nombres de los gastos desde Firebase
     private fun obtenerNombresGastos(busqueda: String) {
+        val emailUsuarioLogueado = FirebaseAuth.getInstance().currentUser?.email
+        if (emailUsuarioLogueado == null) {
+            Toast.makeText(this, "Usuario no autenticado", Toast.LENGTH_SHORT).show()
+            return
+        }
         db.get().addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 val gastos = mutableListOf<String>()
