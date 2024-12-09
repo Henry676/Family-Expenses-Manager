@@ -96,8 +96,6 @@ class AppPrincipal : AppCompatActivity() {
 
             R.id.cerrarSesion -> {
 
-                Toast.makeText(this, "ACTIVANDOSE FALSE SIN AVISAR", Toast.LENGTH_LONG).show()
-
                 val auth = FirebaseAuth.getInstance()
                 val user = auth.currentUser
 
@@ -107,14 +105,15 @@ class AppPrincipal : AppCompatActivity() {
                     val userRef = database.getReference("usuarios").child(userId).child("logged")
 
                     // Actualizar el estado en la base de datos
-                    Toast.makeText(this, "CAMBIANDO A FALSE", Toast.LENGTH_LONG).show()
-
                     userRef.setValue(false)
                         .addOnSuccessListener {
                             println("El estado de 'logged' se ha actualizado a false.")
                             // Cerrar sesión en Firebase Authentication
                             auth.signOut()
-                            finish() // Finaliza la actividad
+                            val intent = Intent(this,Login::class.java)
+                            startActivity(intent)
+                            finish()
+
                         }
                         .addOnFailureListener {
                             Toast.makeText(this, "Error al cerrar sesión", Toast.LENGTH_SHORT).show()

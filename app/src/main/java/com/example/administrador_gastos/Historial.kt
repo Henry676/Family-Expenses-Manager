@@ -212,10 +212,9 @@ class Historial : AppCompatActivity() {
     // Función para actualizar la lista y el adaptador después de eliminar un gasto
     private fun actualizarListaYAdaptador(nombre: String) {
         val listaGastos = (miRecyclerView.adapter as AdaptadorHistorial).items
-        //val gastoEliminado = listaGastos.find { it.split(":")[0] == nombre }
-        if (nombre != null) {
-            listaGastos.remove(nombre)
-            if (listaGastos.size == 0) finish()
+        val gastoEliminado = listaGastos.find { it.split(":")[0] == nombre }
+        if (gastoEliminado != null) {
+            listaGastos.remove(gastoEliminado)
             miAdapter.notifyDataSetChanged()
         }
     }
