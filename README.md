@@ -1,10 +1,3 @@
-Profesor: Luis Alberto Castañeda Rubio.
-Nombre: Henry Daniel Hernandez Morales. 
-Proyecto: App administrador de gastos familiares.
-Grupo: 6°N.
-Registro: 21110385.
-
-
 Descripción del proyecto: 
 
 La aplicacion movil esta creada para ser utilizada por familias que necesiten administrar 
