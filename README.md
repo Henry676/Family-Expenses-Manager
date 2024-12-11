@@ -22,3 +22,9 @@ Sección de registro de comidas
 Sesión de programación de pagos
 ![Screenshot_20241210_174521_Gastos](https://github.com/user-attachments/assets/26a653fe-4ce5-42fb-975e-e41396d5d19d)
 
+Video demostración
+
+
+https://github.com/user-attachments/assets/b707942a-5473-431b-b16c-a93f8f7f90d7
+
+
