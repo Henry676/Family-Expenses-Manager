@@ -1,12 +1,8 @@
-Descripción del proyecto.
+The mobile application is designed to be used by families who need to manage their expenses across different categories. The purpose of this application is to keep track of every expense made over time and planned expenses, enabling users to save money and understand where every penny goes. This helps users think twice before making a purchase, depending on how necessary that purchase is.
 
-La aplicación móvil está creada para ser utilizada por familias que necesiten administrar sus gastos en diferentes categorías. Lo que busca esta aplicación es tener en mente cada gasto que se ha hecho a lo largo de los días y por hacer, para poder ahorrar y ver en qué se va cada centavo. Esto ayuda a pensarlo dos veces cuando vas a comprar algo, dependiendo de cuán necesario sea dicha compra.
+The login activity is created so that each family member can add their expenses. These expenses are stored in a database, where users can consult and add expenses, as well as delete those that have already been paid and no longer need to be tracked.
 
-
-La actividad de login está creada con el propósito de que cada miembro familiar agregue sus gastos, y dichos gastos se vayan guardando en una base de datos donde se podrá consultar y agregar gastos, además de eliminar los que ya fueron pagados y no son necesarios de tener.
-
-
-La actividad principal consta de 6 secciones, de las cuales 4 de ellas son para registrar los gastos de cada categoría; 1 sección es para consultar el historial de todos los gastos, y la otra sección es un calendario para los próximos pagos.
+The main activity consists of six sections, four of which are for registering expenses in each category. One section is dedicated to viewing the history of all expenses, and the other section features a calendar for upcoming payments.
 
 Login:
 ![Screenshot_20241210_174456_Gastos](https://github.com/user-attachments/assets/0010f0e7-8557-4b67-978f-e68d7d381101)
